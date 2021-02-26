@@ -1,17 +1,97 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { useState, useEffect, useCallback } from "react";
+import ReactDOM from "react-dom";
+import { BonusCookies } from "./component/BonusCookies";
+import { useInterval } from "react-use-timeout";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import { CookiesScors } from "./component/CookiesScors";
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const App = (props) => {
+  const [score, setScore] = useState(0);
+  const [totalScore, setTotalScore] = useState(0);
+  const [valueClick, setValueClick] = useState(1);
+  const [valueAutoClick, setValueAutoClick] = useState(0);
+  const [valueGrandMa, setValueGrandMa] = useState(0);
+  const [isValueAutoClick, setIsValueAutoClick] = useState(false);
+  const [isValueGrandMa, setIsValueGrandMa] = useState(false);
+  const [priceValueClick, setPriceValueClick] = useState(10);
+  const [priceAutoClick, setPriceAutoClick] = useState(50);
+  const [priceGrandMa, setPriceGrandMa] = useState(500);
+
+  const callBack = useCallback(() => {
+    changeScores(valueAutoClick);
+  }, [score, totalScore, valueAutoClick]);
+
+  const grandMaCallBack = useCallback(() => {
+    changeScores(valueGrandMa);
+  }, [score, totalScore, valueGrandMa]);
+
+  const timeout = useInterval(callBack, 1000);
+  const grandMaTimeout = useInterval(grandMaCallBack, 1000)
+
+  if (isValueAutoClick) {
+    timeout.start();
+  }
+  if (isValueGrandMa) {
+    grandMaTimeout.start();
+  }
+
+  const changeScores = (newScore)=>{
+    setScore(score + newScore)
+    setTotalScore(newScore + totalScore)
+  }
+
+  return (
+    <div>
+      <CookiesScors
+        score={score}
+        valueClick={valueClick}
+        totalScore={totalScore}
+        valueCPS={valueAutoClick + valueGrandMa}
+        changeScores={(newScore) => {
+          changeScores(newScore);
+        }}
+      />{" "}
+      <BonusCookies
+        valueClick={valueClick}
+        setValueClick={(valueClick) => {
+          setValueClick(valueClick);
+        }}
+        valueAutoClick={valueAutoClick}
+        setValueAutoClick={(valueAutoClick) => {
+          setValueAutoClick(valueAutoClick);
+        }}
+        isValueAutoClick={isValueAutoClick}
+        setIsValueAutoClick={() => {
+          setIsValueAutoClick(true);
+        }}
+        isValueGrandMa={isValueGrandMa}
+        setIsValueGrandMa={() => {
+          setIsValueGrandMa(true);
+        }}
+        valueGrandMa={valueGrandMa}
+        setValueGrandMa={(valueGrandMa) => {
+          setValueGrandMa(valueGrandMa);
+        }}
+        priceValueClick={priceValueClick}
+        priceAutoClick={priceAutoClick}
+        priceGrandMa={priceGrandMa}
+        score={score}
+        totalScore={totalScore}
+        setScore={(param) => {
+          setScore(param);
+        }}
+        setPriceAutoClick={(newPrice) => {
+          setPriceAutoClick(newPrice);
+        }}
+        setPriceValueClick={(newPrice) => {
+          setPriceValueClick(newPrice);
+        }}
+        setPriceGrandMa={(newPrice) => {
+          setPriceGrandMa(newPrice);
+        }}
+      />{" "}
+    </div>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById("App"));
