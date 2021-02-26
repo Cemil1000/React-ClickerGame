@@ -18,22 +18,20 @@ const App = (props) => {
   const [priceGrandMa, setPriceGrandMa] = useState(500);
 
   const callBack = useCallback(() => {
-    changeScores(valueAutoClick);
-  }, [score, totalScore, valueAutoClick]);
-
-  const grandMaCallBack = useCallback(() => {
-    changeScores(valueGrandMa);
-  }, [score, totalScore, valueGrandMa]);
+    if (isValueAutoClick && isValueGrandMa) {
+      return changeScores(valueAutoClick + valueGrandMa);
+    }
+    if (isValueAutoClick) {
+      changeScores(valueAutoClick);
+    }
+    if (isValueGrandMa) {
+      changeScores(valueGrandMa);
+    }
+  }, [score, totalScore, valueAutoClick, valueGrandMa]);
 
   const timeout = useInterval(callBack, 1000);
-  const grandMaTimeout = useInterval(grandMaCallBack, 1000)
 
-  if (isValueAutoClick) {
-    timeout.start();
-  }
-  if (isValueGrandMa) {
-    grandMaTimeout.start();
-  }
+  timeout.start()
 
   const changeScores = (newScore)=>{
     setScore(score + newScore)
