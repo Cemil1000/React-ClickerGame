@@ -30,7 +30,6 @@ const App = (props) => {
   }, [score, totalScore, valueAutoClick, valueGrandMa]);
 
   const timeout = useInterval(callBack, 1000);
-
   timeout.start()
 
   const changeScores = (newScore)=>{
@@ -58,6 +57,10 @@ const App = (props) => {
         setValueAutoClick={(valueAutoClick) => {
           setValueAutoClick(valueAutoClick);
         }}
+        valueGrandMa={valueGrandMa}
+        setValueGrandMa={(valueGrandMa) => {
+          setValueGrandMa(valueGrandMa);
+        }}
         isValueAutoClick={isValueAutoClick}
         setIsValueAutoClick={() => {
           setIsValueAutoClick(true);
@@ -66,15 +69,11 @@ const App = (props) => {
         setIsValueGrandMa={() => {
           setIsValueGrandMa(true);
         }}
-        valueGrandMa={valueGrandMa}
-        setValueGrandMa={(valueGrandMa) => {
-          setValueGrandMa(valueGrandMa);
-        }}
+        score={score}
+        totalScore={totalScore}
         priceValueClick={priceValueClick}
         priceAutoClick={priceAutoClick}
         priceGrandMa={priceGrandMa}
-        score={score}
-        totalScore={totalScore}
         setScore={(param) => {
           setScore(param);
         }}
