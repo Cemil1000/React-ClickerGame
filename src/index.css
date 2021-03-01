@@ -2,20 +2,43 @@
   font-family: 'Minecraft';
   src: url("./font/Minecraft.ttf");
 }
-body {
+body{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background: url('https://i.ibb.co/bH3JY30/IE1G7Lr.png') no-repeat fixed;
+  background-size: cover;
+  background-position: center;
+  font-family: Minecraft;
+  font-size: 20px;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.all-Btn{
+  display: flex;
+  height: 25vh;
+  justify-content: space-around;
+  align-items: center;
 }
-
+.section-Btn{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.img-Btn{
+  width: 100px;
+}
+.btn-Principal{
+  display: flex;
+  height:65vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.test{
+  display: block;
+}
+.test2{
+  display: none;
+}
+/* ---------- Block ---------- */
 .block-Btn {
 	-webkit-transform: scale(1);
 	transform: scale(1);
@@ -27,41 +50,10 @@ code {
 	transform: scale(1.2);
     cursor: pointer;
 }
-
-body{
-  background: url('https://i.ibb.co/bH3JY30/IE1G7Lr.png') no-repeat fixed;
-  background-size: cover;
-  background-position: center;
-  font-family: Minecraft;
-  font-size: 20px;
+.block-Btn:active {
+  transform: translateY(1px);
 }
-
-.all-Btn{
-  display: flex;
-  height: 25vh;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.section-Btn{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
-
-.img-Btn{
-  width: 100px;
-}
-
-.btn-Principal{
-  display: flex;
-  height:65vh;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
-
+/* ---------- Block End ---------- */
 /* ---------- Button ---------- */
 .button {
   height: 40px;
@@ -97,5 +89,8 @@ body{
   background-color: rgba(100, 100, 255, .45);
   color: #FFFFA0;
   cursor: pointer;
+}
+.button:active {
+  transform: translateY(2px);
 }
 /* ---------- Button End ---------- */

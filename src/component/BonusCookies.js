@@ -63,14 +63,14 @@ export const BonusCookies = (props) => {
   const btnValueClick =()=>{
     if (score >= priceValueClick) {
       return(
-        <button class="button" onClick={() => { addBonusClick(); }}>
+        <button className="button" onClick={() => { addBonusClick(); }}>
           <span> {priceValueClick} </span>
         </button>
       )
     }
     else{
       return(
-        <button class="button">
+        <button className="button" style={{color: "#353535"}}>
           <span> {priceValueClick} </span>
         </button>
       )
@@ -80,14 +80,14 @@ export const BonusCookies = (props) => {
   const btnAutoClick =()=>{
     if (score >= priceAutoClick) {
       return(
-        <button class="button" onClick={() => { setAutoClick(); }}>
+        <button className="button" onClick={() => { setAutoClick(); }}>
           <span> {priceAutoClick} </span>
         </button>
       )
     }
     else{
       return(
-        <button class="button">
+        <button className="button" style={{color: "#353535"}}>
           <span> {priceAutoClick} </span>
         </button>
       )
@@ -108,7 +108,7 @@ export const BonusCookies = (props) => {
     else{
       return(
         <div className="section-Btn">
-          <button className="button">
+          <button className="button" style={{color: "#353535"}}>
             <span disabled> {priceGrandMa} </span>
           </button>
           <img src={miner} className="img-Btn" />
