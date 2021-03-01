@@ -1,20 +1,29 @@
 {
   "files": {
-    "main.css": "/React-ClickerGame/static/css/main.4b09917d.chunk.css",
-    "main.js": "/React-ClickerGame/static/js/main.9201d773.chunk.js",
-    "main.js.map": "/React-ClickerGame/static/js/main.9201d773.chunk.js.map",
+    "main.css": "/React-ClickerGame/static/css/main.e95a4f40.chunk.css",
+    "main.js": "/React-ClickerGame/static/js/main.ae9f3a6a.chunk.js",
+    "main.js.map": "/React-ClickerGame/static/js/main.ae9f3a6a.chunk.js.map",
     "runtime-main.js": "/React-ClickerGame/static/js/runtime-main.11b89f5c.js",
     "runtime-main.js.map": "/React-ClickerGame/static/js/runtime-main.11b89f5c.js.map",
-    "static/js/2.06289024.chunk.js": "/React-ClickerGame/static/js/2.06289024.chunk.js",
-    "static/js/2.06289024.chunk.js.map": "/React-ClickerGame/static/js/2.06289024.chunk.js.map",
+    "static/js/2.cc462977.chunk.js": "/React-ClickerGame/static/js/2.cc462977.chunk.js",
+    "static/js/2.cc462977.chunk.js.map": "/React-ClickerGame/static/js/2.cc462977.chunk.js.map",
     "index.html": "/React-ClickerGame/index.html",
-    "static/css/main.4b09917d.chunk.css.map": "/React-ClickerGame/static/css/main.4b09917d.chunk.css.map",
-    "static/js/2.06289024.chunk.js.LICENSE.txt": "/React-ClickerGame/static/js/2.06289024.chunk.js.LICENSE.txt"
+    "static/css/main.e95a4f40.chunk.css.map": "/React-ClickerGame/static/css/main.e95a4f40.chunk.css.map",
+    "static/js/2.cc462977.chunk.js.LICENSE.txt": "/React-ClickerGame/static/js/2.cc462977.chunk.js.LICENSE.txt",
+    "static/media/Block_Diamond_Ore.1ed177d8.png": "/React-ClickerGame/static/media/Block_Diamond_Ore.1ed177d8.png",
+    "static/media/Block_Grass.cc1263ac.png": "/React-ClickerGame/static/media/Block_Grass.cc1263ac.png",
+    "static/media/Block_Netherite.00a79dfe.png": "/React-ClickerGame/static/media/Block_Netherite.00a79dfe.png",
+    "static/media/Block_Obsidienne.d35fa9c0.png": "/React-ClickerGame/static/media/Block_Obsidienne.d35fa9c0.png",
+    "static/media/Block_Stone.2e831e6e.png": "/React-ClickerGame/static/media/Block_Stone.2e831e6e.png",
+    "static/media/Block_Wood.44ee24b8.png": "/React-ClickerGame/static/media/Block_Wood.44ee24b8.png",
+    "static/media/index.css": "/React-ClickerGame/static/media/Minecraft.81f6c7f8.ttf",
+    "static/media/farmer2.d4ba007c.png": "/React-ClickerGame/static/media/farmer2.d4ba007c.png",
+    "static/media/mineur2.d8d879b1.png": "/React-ClickerGame/static/media/mineur2.d8d879b1.png"
   },
   "entrypoints": [
     "static/js/runtime-main.11b89f5c.js",
-    "static/js/2.06289024.chunk.js",
-    "static/css/main.4b09917d.chunk.css",
-    "static/js/main.9201d773.chunk.js"
+    "static/js/2.cc462977.chunk.js",
+    "static/css/main.e95a4f40.chunk.css",
+    "static/js/main.ae9f3a6a.chunk.js"
   ]
 }
