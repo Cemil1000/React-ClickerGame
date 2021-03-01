@@ -70,13 +70,16 @@ export const BonusCookies = (props) => {
     );
   
   const piochetest2 = (tkt)=>{
+    if (tkt%5 == 0 ) {
+      console.log("hello");
+      //
+    }
     if (tkt <= "5") {
       return(
         <img src={pioche3} className="bonusImg" />
       )
     }
     if(tkt <= 10){
-      console.log("yes");
       return(
         <img src={pioche2} className="bonusImg" />
       )
