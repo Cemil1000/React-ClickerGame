@@ -5,8 +5,6 @@ import { BonusCookies } from "./component/BonusCookies";
 import { CookiesScors } from "./component/CookiesScors";
 import { useInterval } from "react-use-timeout";
 
-
-
 const App = (props) => {
   const [score, setScore] = useState(0);
   const [totalScore, setTotalScore] = useState(0);

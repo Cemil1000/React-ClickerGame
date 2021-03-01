@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import block0 from "../img/Block_Grass.png"
 import block1 from "../img/Block_Wood.png"
@@ -11,21 +11,21 @@ const arrayBlock = [block0, block1, block2, block3, block4, block5]
 
 export const CookiesScors = (props) => {
   const { score, valueClick, totalScore, changeScores, valueCPS } = props;
-  
-  const effectImg =()=>{
-    if (totalScore%2 == 0) {
-      return(
-        <div>
-          <img src={block0} className="test2" />
-        </div>
-      )
-    }else{
-      return(
-        <div>
-          <img src={block1} className="test2" />
-        </div>
-      )
-    }
+
+  const [classImgEffect, setClassImgEffect] =useState("")
+  const [nbrClick,setNbrClick]= useState(0)
+  const imgEffect =
+    nbrClick%2 === 0 ?(
+      <img src={block0} alt="Effet de particule" className={"block-Impaire " + classImgEffect} />
+    ):(
+      <img src={block1} alt="Effet de particule" className={"block-Paire " + classImgEffect} />
+    )
+
+  const clickCube = ()=>{
+    changeScores(valueClick)
+    setTimeout(()=>{setClassImgEffect("")},300)
+    setClassImgEffect("effect-img")
+    setNbrClick(nbrClick + 1)
   }
 
   const blockImg = ()=>{
@@ -37,8 +37,9 @@ export const CookiesScors = (props) => {
       <img
         src={arrayBlock[valeurBlock]}
         className="block-Btn"
+        alt="Block principal"
         onClick={() => {
-          changeScores(valueClick)
+          clickCube()
         }}
       />
     )
@@ -48,11 +49,11 @@ export const CookiesScors = (props) => {
     <div className="btn-Principal">
       {blockImg()}
       <div>
-      <p>Block miner: {score}</p>
-      <p>Total block miner: {totalScore} </p>
-      <p>block miner par seconde: {valueCPS} </p>
+      <p className="info-Score">Block miner: {score}</p>
+      <p className="info-Score">Total block miner: {totalScore} </p>
+      <p className="info-Score">block miner par seconde: {valueCPS} </p>
+      {imgEffect}
       </div>
-      {effectImg()}
     </div>
     
   );

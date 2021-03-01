@@ -101,7 +101,7 @@ export const BonusCookies = (props) => {
           <button onClick={() => { setGrandMa(); }} className="button">
             <span> {priceGrandMa} </span>
           </button>
-          <img src={miner} className="img-Btn" />
+          <img src={miner} alt="Mineur" className="img-Btn" />
         </div>
       )
     }
@@ -111,7 +111,7 @@ export const BonusCookies = (props) => {
           <button className="button" style={{color: "#353535"}}>
             <span disabled> {priceGrandMa} </span>
           </button>
-          <img src={miner} className="img-Btn" />
+          <img src={miner} alt="Mineur" className="img-Btn" />
         </div>
       )
     }
@@ -123,7 +123,7 @@ export const BonusCookies = (props) => {
       valeurPickaxe = 5
     }
     return(
-      <img src={arrayPickaxe[valeurPickaxe]} className="img-Btn" />
+      <img src={arrayPickaxe[valeurPickaxe]} alt="Pioche" className="img-Btn" />
     )
   }
 
@@ -136,7 +136,7 @@ export const BonusCookies = (props) => {
       </div>
       <div className="section-Btn">
         {btnAutoClick()}
-        <img src={farmer} className="img-Btn" />
+        <img src={farmer} alt="image de farmer" className="img-Btn" />
       </div>
       {totalScore>=500 && btnMiner()}
     </div>

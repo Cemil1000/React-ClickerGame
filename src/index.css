@@ -19,10 +19,12 @@ body{
 .section-Btn{
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  height: 150px;
 }
 .img-Btn{
   width: 100px;
+  height: 100px;
 }
 .btn-Principal{
   display: flex;
@@ -32,11 +34,24 @@ body{
   flex-direction: column;
   flex-wrap: wrap;
 }
-.test{
-  display: block;
+.info-Score{
+  text-align: center;
 }
-.test2{
+
+.block-Impaire{
   display: none;
+  position: absolute;
+  top: 10vh; right: 45%;
+  width: 20px;
+}
+.block-Paire{
+  display: none;
+  position: absolute;
+  top: 10vh; left: 45%;
+  width: 20px;
+}
+.effect-img{
+  display: block;
 }
 /* ---------- Block ---------- */
 .block-Btn {
