@@ -1,6 +1,16 @@
 import React from "react";
-import pioche2 from "../img/piocheEnchante.png";
-import pioche3 from "../img/test.png";
+
+import farmer from "../img/farmer2.png"
+import miner from "../img/mineur2.png"
+
+import pickaxe0 from "../img/Pickaxe_Wooden.png"
+import pickaxe1 from "../img/Pickaxe_Stone.png"
+import pickaxe2 from "../img/Pickaxe_Iron.png"
+import pickaxe3 from "../img/Pickaxe_Golden.png"
+import pickaxe4 from "../img/Pickaxe_Diamond.png"
+import pickaxe5 from "../img/Pickaxe_Netherite.png"
+
+const arrayPickaxe = [pickaxe0,pickaxe1,pickaxe2,pickaxe3,pickaxe4,pickaxe5]
 
 export const BonusCookies = (props) => {
   const {
@@ -50,62 +60,85 @@ export const BonusCookies = (props) => {
   }
 
   //----------All Button----------//
-  const btnValueClick =
-    score >= priceValueClick ? (
-      <button onClick={() => { addBonusClick(); }}> {priceValueClick} </button>
-    ) : (
-      <button disabled> {priceValueClick} </button>
-    );
-  const btnAutoClick =
-    score >= priceAutoClick ? (
-      <button onClick={() => { setAutoClick(); }}> {priceAutoClick} </button>
-    ) : (
-      <button disabled> {priceAutoClick} </button>
-    );
-  const btnGrandMa =
-    score >= priceGrandMa ? (
-      <button onClick={() => { setGrandMa(); }}> {priceGrandMa} </button>
-    ) : (
-      <button disabled> {priceGrandMa} </button>
-    );
-  
-  const piochetest2 = (tkt)=>{
-    if (tkt%5 == 0 ) {
-      console.log("hello");
-      //
-    }
-    if (tkt <= "5") {
+  const btnValueClick =()=>{
+    if (score >= priceValueClick) {
       return(
-        <img src={pioche3} className="bonusImg" />
+        <button class="button" onClick={() => { addBonusClick(); }}>
+          <span> {priceValueClick} </span>
+        </button>
       )
     }
-    if(tkt <= 10){
+    else{
       return(
-        <img src={pioche2} className="bonusImg" />
+        <button class="button">
+          <span> {priceValueClick} </span>
+        </button>
+      )
+    }
+  }
+    
+  const btnAutoClick =()=>{
+    if (score >= priceAutoClick) {
+      return(
+        <button class="button" onClick={() => { setAutoClick(); }}>
+          <span> {priceAutoClick} </span>
+        </button>
+      )
+    }
+    else{
+      return(
+        <button class="button">
+          <span> {priceAutoClick} </span>
+        </button>
       )
     }
   }
 
+  const btnMiner = ()=>{
+    if (score >= priceGrandMa) {
+      return(
+        <div className="section-Btn">
+          <button onClick={() => { setGrandMa(); }} className="button">
+            <span> {priceGrandMa} </span>
+          </button>
+          <img src={miner} className="img-Btn" />
+        </div>
+      )
+    }
+    else{
+      return(
+        <div className="section-Btn">
+          <button className="button">
+            <span disabled> {priceGrandMa} </span>
+          </button>
+          <img src={miner} className="img-Btn" />
+        </div>
+      )
+    }
+  }
+  
+  const pickaxeImg = ()=>{
+    let valeurPickaxe = Math.floor(valueClick/5)
+    if (valeurPickaxe > 5) {
+      valeurPickaxe = 5
+    }
+    return(
+      <img src={arrayPickaxe[valeurPickaxe]} className="img-Btn" />
+    )
+  }
+
   //----------Return Button----------//
   return (
-    <div className="allBtn">
-      {/* <p>Le chiffre dans les bouttons sont les prix</p>
-      <p>À 500 de Score total vous débloquez un nouveau bonus</p> */}
-      <div className="pickaxe">
-        {btnValueClick}
-        {piochetest2(valueClick)}
+    <div className="all-Btn">
+      <div className="section-Btn">
+        {btnValueClick()}
+        {pickaxeImg()}
       </div>
-      <div className="farmer">
-        {btnAutoClick}
-
+      <div className="section-Btn">
+        {btnAutoClick()}
+        <img src={farmer} className="img-Btn" />
       </div>
-      <div className="miner">
-        {totalScore>=500 && btnGrandMa}
-
-      </div>
-      
-      
-      
+      {totalScore>=500 && btnMiner()}
     </div>
   );
 };

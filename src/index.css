@@ -1,3 +1,7 @@
+@font-face{
+  font-family: 'Minecraft';
+  src: url("./font/Minecraft.ttf");
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -12,40 +16,86 @@ code {
     monospace;
 }
 
-.cookie-btn:hover{
-  cursor: pointer;
+.block-Btn {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
 }
-body{
-  background-color: grey;
+.block-Btn:hover {
+	-webkit-transform: scale(1.2);
+	transform: scale(1.2);
+    cursor: pointer;
 }
 
-.allBtn{
+body{
+  background: url('https://i.ibb.co/bH3JY30/IE1G7Lr.png') no-repeat fixed;
+  background-size: cover;
+  background-position: center;
+  font-family: Minecraft;
+  font-size: 20px;
+}
+
+.all-Btn{
   display: flex;
   height: 25vh;
   justify-content: space-around;
   align-items: center;
 }
 
-.bonusImg{
-  width: 100px;
-}
-.pickaxe{
+.section-Btn{
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
 }
-.farmer{
 
+.img-Btn{
+  width: 100px;
 }
-.miner{
 
-}
-.allBtn2{
+.btn-Principal{
   display: flex;
-  height: 75vh;
-  justify-content: space-around;
+  height:65vh;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
 }
 
+/* ---------- Button ---------- */
+.button {
+  height: 40px;
+  width: 100px;
+  outline: 2px solid black;
+  position: relative;
+  display: inline-block;
+  background-image: url('https://i.ibb.co/rb2TWXL/bgbtn.png');
+  background-repeat: repeat;
+  text-align: center;
+  color: white;
+  text-shadow: 3px 3px #4C4C4C;
+  border-bottom: 4px solid #565656;
+  border-right: 2px solid #565656;
+  border-left: 2px solid #AAA;
+  border-top: 2px solid #AAA;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: Minecraft;
+}
+
+.button span {
+  position: relative;
+  line-height: 40px;
+  bottom: 3px;
+}
+
+.button:hover {
+  border-bottom: 4px solid #59639A;
+  border-right: 2px solid #59639A;
+  border-left: 2px solid #BDC6FF;
+  border-top: 2px solid #BDC6FF;
+  background-color: rgba(100, 100, 255, .45);
+  color: #FFFFA0;
+  cursor: pointer;
+}
+/* ---------- Button End ---------- */
