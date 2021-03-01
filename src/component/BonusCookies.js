@@ -1,4 +1,6 @@
 import React from "react";
+import pioche2 from "../img/piocheEnchante.png";
+import pioche3 from "../img/test.png";
 
 export const BonusCookies = (props) => {
   const {
@@ -66,15 +68,41 @@ export const BonusCookies = (props) => {
     ) : (
       <button disabled> {priceGrandMa} </button>
     );
+  
+  const piochetest2 = (tkt)=>{
+    if (tkt <= "5") {
+      return(
+        <img src={pioche3} className="bonusImg" />
+      )
+    }
+    if(tkt <= 10){
+      console.log("yes");
+      return(
+        <img src={pioche2} className="bonusImg" />
+      )
+    }
+  }
 
   //----------Return Button----------//
   return (
-    <div>
-      <p>Le chiffre dans les bouttons sont les prix</p>
-      <p>À 500 de Score total vous débloquez un nouveau bonus</p>
-      {btnValueClick}
-      {btnAutoClick}
-      {totalScore>=500 && btnGrandMa}
+    <div className="allBtn">
+      {/* <p>Le chiffre dans les bouttons sont les prix</p>
+      <p>À 500 de Score total vous débloquez un nouveau bonus</p> */}
+      <div className="pickaxe">
+        {btnValueClick}
+        {piochetest2(valueClick)}
+      </div>
+      <div className="farmer">
+        {btnAutoClick}
+
+      </div>
+      <div className="miner">
+        {totalScore>=500 && btnGrandMa}
+
+      </div>
+      
+      
+      
     </div>
   );
 };

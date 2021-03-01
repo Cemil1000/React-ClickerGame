@@ -1,3 +1,4 @@
+import "./index.css";
 import React, { useState, useEffect, useCallback } from "react";
 import ReactDOM from "react-dom";
 import { BonusCookies } from "./component/BonusCookies";
