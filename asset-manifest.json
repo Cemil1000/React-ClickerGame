@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/React-ClickerGame/static/css/main.39c04fcf.chunk.css",
-    "main.js": "/React-ClickerGame/static/js/main.17d0345b.chunk.js",
-    "main.js.map": "/React-ClickerGame/static/js/main.17d0345b.chunk.js.map",
+    "main.js": "/React-ClickerGame/static/js/main.5593bafc.chunk.js",
+    "main.js.map": "/React-ClickerGame/static/js/main.5593bafc.chunk.js.map",
     "runtime-main.js": "/React-ClickerGame/static/js/runtime-main.11b89f5c.js",
     "runtime-main.js.map": "/React-ClickerGame/static/js/runtime-main.11b89f5c.js.map",
     "static/js/2.cc462977.chunk.js": "/React-ClickerGame/static/js/2.cc462977.chunk.js",
@@ -24,6 +24,6 @@
     "static/js/runtime-main.11b89f5c.js",
     "static/js/2.cc462977.chunk.js",
     "static/css/main.39c04fcf.chunk.css",
-    "static/js/main.17d0345b.chunk.js"
+    "static/js/main.5593bafc.chunk.js"
   ]
 }
