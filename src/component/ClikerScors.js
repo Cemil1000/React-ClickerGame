@@ -9,8 +9,8 @@ import block5 from "../img/Block_Netherite.png"
 
 const arrayBlock = [block0, block1, block2, block3, block4, block5]
 
-export const CookiesScors = (props) => {
-  const { score, valueClick, totalScore, changeScores, valueCPS } = props;
+export const ClikerScors = (props) => {
+  const { block, valueClick, totalBlock, changeScores, valueCPS } = props;
 
   const [classImgEffect, setClassImgEffect] =useState("")
   const [nbrClick,setNbrClick]= useState(0)
@@ -29,7 +29,7 @@ export const CookiesScors = (props) => {
   }
 
   const blockImg = ()=>{
-    let valeurBlock = Math.floor(totalScore/250)
+    let valeurBlock = Math.floor(totalBlock/250)
     if (valeurBlock > 5) {
       valeurBlock = 5
     }
@@ -49,8 +49,8 @@ export const CookiesScors = (props) => {
     <div className="btn-Principal">
       {blockImg()}
       <div>
-      <p className="info-Score">Block miner: {score}</p>
-      <p className="info-Score">Total block miner: {totalScore} </p>
+      <p className="info-Score">Block miner: {block}</p>
+      <p className="info-Score">Total block miner: {totalBlock} </p>
       <p className="info-Score">block miner par seconde: {valueCPS} </p>
       {imgEffect}
       </div>

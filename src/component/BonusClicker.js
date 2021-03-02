@@ -12,56 +12,57 @@ import pickaxe5 from "../img/Pickaxe_Netherite.png"
 
 const arrayPickaxe = [pickaxe0,pickaxe1,pickaxe2,pickaxe3,pickaxe4,pickaxe5]
 
-export const BonusCookies = (props) => {
+export const BonusClicker = (props) => {
   const {
-    score,
-    setScore,
-    totalScore,
-    // click + prix bonus 
+    // Block
+    block,
+    setBlock,
+    totalBlock,
+    // Click + prix bonus 
     valueClick,
     setValueClick,
     priceValueClick,
     setPriceValueClick,
-    // Premier Bonus auto click
-    valueAutoClick,
-    setValueAutoClick,
-    setIsValueAutoClick,
-    priceAutoClick,
-    setPriceAutoClick,
-    // Deuxième Bonus auto click
-    valueGrandMa,
-    setValueGrandMa,
-    setIsValueGrandMa,
-    priceGrandMa,
-    setPriceGrandMa
+    // Bonus farmer auto click
+    valueFarmer,
+    setValueFarmer,
+    setIsValueFarmer,
+    priceFarmer,
+    setPriceFarmer,
+    // Bonus Mineur auto click
+    valueMineur,
+    setValueMineur,
+    setIsValueMineur,
+    priceMineur,
+    setPriceMineur
   } = props;
 
   //----------Function----------//
   function addBonusClick() {
     setValueClick(valueClick +1);
-    setScore(score - priceValueClick);
+    setBlock(block - priceValueClick);
     setPriceValueClick(priceValueClick +1)
   }
-  function setAutoClick() {
-    if (valueAutoClick === 0) {
-      setIsValueAutoClick();
+  function setFarmer() {
+    if (valueFarmer === 0) {
+      setIsValueFarmer();
     }
-    setValueAutoClick(valueAutoClick + 1);
-    setScore(score - priceAutoClick);
-    setPriceAutoClick(priceAutoClick*2)
+    setValueFarmer(valueFarmer + 1);
+    setBlock(block - priceFarmer);
+    setPriceFarmer(priceFarmer*2)
   }
-  function setGrandMa() {
-    if (valueGrandMa === 0) {
-      setIsValueGrandMa();
+  function setMineur() {
+    if (valueMineur === 0) {
+      setIsValueMineur();
     }
-    setValueGrandMa(valueGrandMa + 2);
-    setScore(score - priceGrandMa);
-    setPriceGrandMa(priceGrandMa*2)
+    setValueMineur(valueMineur + 2);
+    setBlock(block - priceMineur);
+    setPriceMineur(priceMineur*2)
   }
 
   //----------All Button----------//
   const btnValueClick =()=>{
-    if (score >= priceValueClick) {
+    if (block >= priceValueClick) {
       return(
         <button className="button" onClick={() => { addBonusClick(); }}>
           <span> {priceValueClick} </span>
@@ -77,29 +78,29 @@ export const BonusCookies = (props) => {
     }
   }
     
-  const btnAutoClick =()=>{
-    if (score >= priceAutoClick) {
+  const btnFarmer =()=>{
+    if (block >= priceFarmer) {
       return(
-        <button className="button" onClick={() => { setAutoClick(); }}>
-          <span> {priceAutoClick} </span>
+        <button className="button" onClick={() => { setFarmer(); }}>
+          <span> {priceFarmer} </span>
         </button>
       )
     }
     else{
       return(
         <button className="button" style={{color: "#353535"}}>
-          <span> {priceAutoClick} </span>
+          <span> {priceFarmer} </span>
         </button>
       )
     }
   }
 
   const btnMiner = ()=>{
-    if (score >= priceGrandMa) {
+    if (block >= priceMineur) {
       return(
         <div className="section-Btn">
-          <button onClick={() => { setGrandMa(); }} className="button">
-            <span> {priceGrandMa} </span>
+          <button onClick={() => { setMineur(); }} className="button">
+            <span> {priceMineur} </span>
           </button>
           <img src={miner} alt="Mineur" className="img-Btn" />
         </div>
@@ -109,7 +110,7 @@ export const BonusCookies = (props) => {
       return(
         <div className="section-Btn">
           <button className="button" style={{color: "#353535"}}>
-            <span disabled> {priceGrandMa} </span>
+            <span disabled> {priceMineur} </span>
           </button>
           <img src={miner} alt="Mineur" className="img-Btn" />
         </div>
@@ -135,10 +136,10 @@ export const BonusCookies = (props) => {
         {pickaxeImg()}
       </div>
       <div className="section-Btn">
-        {btnAutoClick()}
+        {btnFarmer()}
         <img src={farmer} alt="image de farmer" className="img-Btn" />
       </div>
-      {totalScore>=500 && btnMiner()}
+      {totalBlock>=500 && btnMiner()}
     </div>
   );
 };

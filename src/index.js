@@ -1,90 +1,94 @@
 import "./index.css";
 import React, { useState, useEffect, useCallback } from "react";
 import ReactDOM from "react-dom";
-import { BonusCookies } from "./component/BonusCookies";
-import { CookiesScors } from "./component/CookiesScors";
+import { BonusClicker } from "./component/BonusClicker";
+import { ClikerScors } from "./component/ClikerScors";
 import { useInterval } from "react-use-timeout";
 
 const App = (props) => {
-  const [score, setScore] = useState(0);
-  const [totalScore, setTotalScore] = useState(0);
+  // Block
+  const [block, setBlock] = useState(0);
+  const [totalBlock, setTotalBlock] = useState(0);
+  // Click + Prix bonus
   const [valueClick, setValueClick] = useState(1);
-  const [valueAutoClick, setValueAutoClick] = useState(0);
-  const [valueGrandMa, setValueGrandMa] = useState(0);
-  const [isValueAutoClick, setIsValueAutoClick] = useState(false);
-  const [isValueGrandMa, setIsValueGrandMa] = useState(false);
   const [priceValueClick, setPriceValueClick] = useState(10);
-  const [priceAutoClick, setPriceAutoClick] = useState(50);
-  const [priceGrandMa, setPriceGrandMa] = useState(500);
+  // Bonus farmer auto click
+  const [valueFarmer, setValueFarmer] = useState(0);
+  const [isValueFarmer, setIsValueFarmer] = useState(false);
+  const [priceFarmer, setPriceFarmer] = useState(50);
+  // Bonus Mineur auto click
+  const [valueMineur, setValueMineur] = useState(0);
+  const [isValueMineur, setIsValueMineur] = useState(false);
+  const [priceMineur, setPriceMineur] = useState(500);
 
   const callBack = useCallback(() => {
-    if (isValueAutoClick && isValueGrandMa) {
-      return changeScores(valueAutoClick + valueGrandMa);
+    if (isValueFarmer && isValueMineur) {
+      return changeScores(valueFarmer + valueMineur);
     }
-    if (isValueAutoClick) {
-      changeScores(valueAutoClick);
+    if (isValueFarmer) {
+      changeScores(valueFarmer);
     }
-    if (isValueGrandMa) {
-      changeScores(valueGrandMa);
+    if (isValueMineur) {
+      changeScores(valueMineur);
     }
-  }, [score, totalScore, valueAutoClick, valueGrandMa]);
+  }, [block, totalBlock, valueFarmer, valueMineur]);
 
   const timeout = useInterval(callBack, 1000);
   timeout.start()
 
   const changeScores = (newScore)=>{
-    setScore(score + newScore)
-    setTotalScore(newScore + totalScore)
+    setBlock(block + newScore)
+    setTotalBlock(newScore + totalBlock)
   }
 
   return (
     <div>
-      <CookiesScors
-        score={score}
+      <ClikerScors
+        block={block}
         valueClick={valueClick}
-        totalScore={totalScore}
-        valueCPS={valueAutoClick + valueGrandMa}
+        totalBlock={totalBlock}
+        valueCPS={valueFarmer + valueMineur}
         changeScores={(newScore) => {
           changeScores(newScore);
         }}
       />{" "}
-      <BonusCookies
+      <BonusClicker
         valueClick={valueClick}
         setValueClick={(valueClick) => {
           setValueClick(valueClick);
         }}
-        valueAutoClick={valueAutoClick}
-        setValueAutoClick={(valueAutoClick) => {
-          setValueAutoClick(valueAutoClick);
+        valueFarmer={valueFarmer}
+        setValueFarmer={(valueFarmer) => {
+          setValueFarmer(valueFarmer);
         }}
-        valueGrandMa={valueGrandMa}
-        setValueGrandMa={(valueGrandMa) => {
-          setValueGrandMa(valueGrandMa);
+        valueMineur={valueMineur}
+        setValueMineur={(valueMineur) => {
+          setValueMineur(valueMineur);
         }}
-        isValueAutoClick={isValueAutoClick}
-        setIsValueAutoClick={() => {
-          setIsValueAutoClick(true);
+        isValueFarmer={isValueFarmer}
+        setIsValueFarmer={() => {
+          setIsValueFarmer(true);
         }}
-        isValueGrandMa={isValueGrandMa}
-        setIsValueGrandMa={() => {
-          setIsValueGrandMa(true);
+        isValueMineur={isValueMineur}
+        setIsValueMineur={() => {
+          setIsValueMineur(true);
         }}
-        score={score}
-        totalScore={totalScore}
+        block={block}
+        totalBlock={totalBlock}
         priceValueClick={priceValueClick}
-        priceAutoClick={priceAutoClick}
-        priceGrandMa={priceGrandMa}
-        setScore={(param) => {
-          setScore(param);
+        priceFarmer={priceFarmer}
+        priceMineur={priceMineur}
+        setBlock={(param) => {
+          setBlock(param);
         }}
-        setPriceAutoClick={(newPrice) => {
-          setPriceAutoClick(newPrice);
+        setPriceFarmer={(newPrice) => {
+          setPriceFarmer(newPrice);
         }}
         setPriceValueClick={(newPrice) => {
           setPriceValueClick(newPrice);
         }}
-        setPriceGrandMa={(newPrice) => {
-          setPriceGrandMa(newPrice);
+        setPriceMineur={(newPrice) => {
+          setPriceMineur(newPrice);
         }}
       />{" "}
     </div>
