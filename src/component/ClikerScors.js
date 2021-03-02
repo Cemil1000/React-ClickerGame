@@ -34,14 +34,7 @@ export const ClikerScors = (props) => {
       valeurBlock = 5
     }
     return(
-      <img
-        src={arrayBlock[valeurBlock]}
-        className="block-Btn"
-        alt="Block principal"
-        onClick={() => {
-          clickCube()
-        }}
-      />
+      <img src={arrayBlock[valeurBlock]} className="block-Btn" alt="Block principal" onClick={() => { clickCube() }}/>
     )
   }
 
@@ -55,6 +48,5 @@ export const ClikerScors = (props) => {
       {imgEffect}
       </div>
     </div>
-    
   );
 };

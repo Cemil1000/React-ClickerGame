@@ -34,12 +34,12 @@ const App = (props) => {
   }, [block, totalBlock, valueFarmer, valueMineur]);
 
   const timeout = useInterval(callBack, 1000);
-  timeout.start()
+  timeout.start();
 
-  const changeScores = (newScore)=>{
-    setBlock(block + newScore)
-    setTotalBlock(newScore + totalBlock)
-  }
+  const changeScores = (newScore) => {
+    setBlock(block + newScore);
+    setTotalBlock(newScore + totalBlock);
+  };
 
   return (
     <div>

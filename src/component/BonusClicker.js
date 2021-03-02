@@ -1,16 +1,23 @@
 import React from "react";
 
-import farmer from "../img/farmer2.png"
-import miner from "../img/mineur2.png"
+import farmer from "../img/farmer2.png";
+import miner from "../img/mineur2.png";
 
-import pickaxe0 from "../img/Pickaxe_Wooden.png"
-import pickaxe1 from "../img/Pickaxe_Stone.png"
-import pickaxe2 from "../img/Pickaxe_Iron.png"
-import pickaxe3 from "../img/Pickaxe_Golden.png"
-import pickaxe4 from "../img/Pickaxe_Diamond.png"
-import pickaxe5 from "../img/Pickaxe_Netherite.png"
+import pickaxe0 from "../img/Pickaxe_Wooden.png";
+import pickaxe1 from "../img/Pickaxe_Stone.png";
+import pickaxe2 from "../img/Pickaxe_Iron.png";
+import pickaxe3 from "../img/Pickaxe_Golden.png";
+import pickaxe4 from "../img/Pickaxe_Diamond.png";
+import pickaxe5 from "../img/Pickaxe_Netherite.png";
 
-const arrayPickaxe = [pickaxe0,pickaxe1,pickaxe2,pickaxe3,pickaxe4,pickaxe5]
+const arrayPickaxe = [
+  pickaxe0,
+  pickaxe1,
+  pickaxe2,
+  pickaxe3,
+  pickaxe4,
+  pickaxe5,
+];
 
 export const BonusClicker = (props) => {
   const {
@@ -18,7 +25,7 @@ export const BonusClicker = (props) => {
     block,
     setBlock,
     totalBlock,
-    // Click + prix bonus 
+    // Click + prix bonus
     valueClick,
     setValueClick,
     priceValueClick,
@@ -34,14 +41,14 @@ export const BonusClicker = (props) => {
     setValueMineur,
     setIsValueMineur,
     priceMineur,
-    setPriceMineur
+    setPriceMineur,
   } = props;
 
   //----------Function----------//
   function addBonusClick() {
-    setValueClick(valueClick +1);
+    setValueClick(valueClick + 1);
     setBlock(block - priceValueClick);
-    setPriceValueClick(priceValueClick +1)
+    setPriceValueClick(priceValueClick + 1);
   }
   function setFarmer() {
     if (valueFarmer === 0) {
@@ -49,7 +56,7 @@ export const BonusClicker = (props) => {
     }
     setValueFarmer(valueFarmer + 1);
     setBlock(block - priceFarmer);
-    setPriceFarmer(priceFarmer*2)
+    setPriceFarmer(priceFarmer * 2);
   }
   function setMineur() {
     if (valueMineur === 0) {
@@ -57,76 +64,73 @@ export const BonusClicker = (props) => {
     }
     setValueMineur(valueMineur + 2);
     setBlock(block - priceMineur);
-    setPriceMineur(priceMineur*2)
+    setPriceMineur(priceMineur * 2);
   }
 
   //----------All Button----------//
-  const btnValueClick =()=>{
+  const btnValueClick = () => {
     if (block >= priceValueClick) {
-      return(
+      return (
         <button className="button" onClick={() => { addBonusClick(); }}>
           <span> {priceValueClick} </span>
         </button>
-      )
-    }
-    else{
-      return(
-        <button className="button" style={{color: "#353535"}}>
+      );
+    } else {
+      return (
+        <button className="button" style={{ color: "#353535" }}>
           <span> {priceValueClick} </span>
         </button>
-      )
+      );
     }
-  }
-    
-  const btnFarmer =()=>{
+  };
+
+  const btnFarmer = () => {
     if (block >= priceFarmer) {
-      return(
+      return (
         <button className="button" onClick={() => { setFarmer(); }}>
           <span> {priceFarmer} </span>
         </button>
-      )
-    }
-    else{
-      return(
-        <button className="button" style={{color: "#353535"}}>
+      );
+    } else {
+      return (
+        <button className="button" style={{ color: "#353535" }}>
           <span> {priceFarmer} </span>
         </button>
-      )
+      );
     }
-  }
+  };
 
-  const btnMiner = ()=>{
+  const btnMiner = () => {
     if (block >= priceMineur) {
-      return(
+      return (
         <div className="section-Btn">
-          <button onClick={() => { setMineur(); }} className="button">
+          <button className="button" onClick={() => { setMineur(); }}>
             <span> {priceMineur} </span>
           </button>
           <img src={miner} alt="Mineur" className="img-Btn" />
         </div>
-      )
-    }
-    else{
-      return(
+      );
+    } else {
+      return (
         <div className="section-Btn">
-          <button className="button" style={{color: "#353535"}}>
+          <button className="button" style={{ color: "#353535" }}>
             <span disabled> {priceMineur} </span>
           </button>
           <img src={miner} alt="Mineur" className="img-Btn" />
         </div>
-      )
+      );
     }
-  }
-  
-  const pickaxeImg = ()=>{
-    let valeurPickaxe = Math.floor(valueClick/5)
+  };
+
+  const pickaxeImg = () => {
+    let valeurPickaxe = Math.floor(valueClick / 5);
     if (valeurPickaxe > 5) {
-      valeurPickaxe = 5
+      valeurPickaxe = 5;
     }
-    return(
+    return (
       <img src={arrayPickaxe[valeurPickaxe]} alt="Pioche" className="img-Btn" />
-    )
-  }
+    );
+  };
 
   //----------Return Button----------//
   return (
@@ -139,7 +143,7 @@ export const BonusClicker = (props) => {
         {btnFarmer()}
         <img src={farmer} alt="image de farmer" className="img-Btn" />
       </div>
-      {totalBlock>=500 && btnMiner()}
+      {totalBlock >= 500 && btnMiner()}
     </div>
   );
 };
